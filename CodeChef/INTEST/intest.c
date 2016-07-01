@@ -2,9 +2,9 @@
 
 int main(void){
 	long long int a;
-	int i,d,c=0;
-	scanf("%d %d",&i,&d);
-	while(i--){
+	int T,d,c=0;
+	scanf("%d %d",&T,&d);
+	while(T--){
 	         scanf("%lld",&a);
 	         if(a%d==0) c++;
 	}
