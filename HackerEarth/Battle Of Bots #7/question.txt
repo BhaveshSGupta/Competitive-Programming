@@ -1,0 +1,97 @@
+lor, Red ( First Player ) or Blue ( Second Player ). The objective of the game is to take control of the board by eliminating your opponents' orbs.
+
+Players take it in turns to place their orbs in a cell. Once a cell has reached critical mass the orbs explode into the surrounding cells adding an extra orb and claiming the cell for the player. The explosions might result in overloading of an adjacent cell and the chain reaction of explosion continues until every cell is stable. When a red cell explodes and there are blue cells around, the blue cells are converted to red and the other rules of explosions still follow. The same rule is applicable for other colors. A player may only place their orbs in a blank cell or a cell that contains orbs of their own color. As soon as a player looses all their orbs they are out of the game.
+
+We will play it on a 5X5
+grid. The top left of the grid is [0,0] and the bottom right is [4,4]. The rule is that a cell[i,j]
+
+is connected to any of top, left, right, or bottom cell.
+
+NOTE:
+
+    Surrounding cells are the one which share same edge.
+    A cell will become unstable if it will have number of orbs equal to the number of surrounding cells.
+
+Input:
+The input will be a 5X5
+matrix in which each cell consists of two integers, a and b. a denotes players id and b denotes number of orbs in the cell of player with player id a. Empty cells are denoted by 00. Then another line will follow which will contain a number - 1 or 2 which is your player id. In the given matrix, top-left is [0,0] and bottom-right is [4,4]
+
+. The x-coordinate increases from left to right, and y-coordinate increases from top to bottom.
+
+The cell marked 0
+means it doesn't contain any orbs. The cell marked 1 means it contains first player's orbs which is Red in color. The cell marked 2
+
+means it contains second player's orbs which is Blue in color.
+
+Output:
+Print the coordinates of the cell separated by space, where you want to play your move. You must take care that you don't print invalid coordinates. For example, [1,1]
+might be a valid coordinate in the game play if it doesn't contains other player's orbs, but [9,10]
+
+will never be. Also if you play an invalid move or your code exceeds the time/memory limit while determining the move, you lose the game.
+
+Starting state
+The starting state of the game is the state of the board before the game starts.
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+
+First Input
+This is the input give to the first player at the start of the game.
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+00 00 00 00 00
+1
+
+Note: Due to some limitations, the animation in the game will show only one explode. After that it will directly show the next state without showing the intermediate explosions. 
+
+SAMPLE INPUT
+
+00 00 00 21 00  
+00 00 00 00 00  
+00 00 13 13 21  
+00 00 00 00 00  
+00 00 00 00 00  
+1
+
+SAMPLE OUTPUT
+
+2 2
+
+Explanation
+
+This is player 1′s
+turn, and the player puts his/her orb in cell [2,2]
+
+.
+
+Since the cell [2,2]
+will have 4
+
+orbs and become unstable, it will explode into the surrounding cells adding an extra orb.
+
+00 00 00 21 00
+00 00 11 00 00
+00 11 00 14 21
+00 00 11 00 00
+00 00 00 00 00
+
+Again the cell [2,3]
+will have 4
+
+orbs and become unstable, it will explode into the surrounding cells adding an extra orb and convert the second player's orbs into his / her orbs.
+
+After his/her move the state of game becomes:
+
+00 00 00 21 00
+00 00 11 11 00
+00 11 11 00 12
+00 00 11 11 00
+00 00 00 00 00
+
+This state will be fed as input to program of player 2.
+
+Here is the link of the random bot code: https://code.hackerearth.com/caef2ai
